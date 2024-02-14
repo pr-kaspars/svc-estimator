@@ -9,8 +9,6 @@ import org.springframework.context.annotation.Configuration
 
 @Configuration
 class EstimatorConfiguration {
-    @Bean
-    fun feasibilityThreshold(): Double = 0.75
 
     @Bean
     fun estimateProvider(cintOrderingApi: CintOrderingApi): FeasibilityProvider {

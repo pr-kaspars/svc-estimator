@@ -24,7 +24,9 @@ dependencies {
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("com.github.ben-manes.caffeine:caffeine")
+	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.3.0")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
+	testImplementation("org.mockito:mockito-core")
 }
 
 tasks.withType<KotlinCompile> {

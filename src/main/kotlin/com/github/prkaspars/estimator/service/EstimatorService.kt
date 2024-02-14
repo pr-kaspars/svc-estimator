@@ -3,10 +3,9 @@ package com.github.prkaspars.estimator.service
 import org.springframework.stereotype.Service
 
 @Service
-class EstimatorService(
-    private val feasibilityProvider: FeasibilityProvider,
-    private val feasibilityThreshold: Double
-) {
+class EstimatorService(private val feasibilityProvider: FeasibilityProvider) {
+    private val feasibilityThreshold: Double = 0.75
+
     fun estimate(limit: Int, lengthOfInterview: Int): Estimate {
         val feasibilityWeek = feasibilityProvider.getFeasibility(limit, lengthOfInterview, 7)
         return if (feasibilityWeek > feasibilityThreshold) {
