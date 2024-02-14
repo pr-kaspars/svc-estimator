@@ -13,6 +13,9 @@ import org.springframework.web.service.invoker.HttpServiceProxyFactory
 class WebClientConfiguration {
     @Bean
     fun cintWebClient(configuration: CintClientConfiguration): WebClient {
+        if (configuration.apiKey.isBlank()) {
+            throw IllegalArgumentException("Missing Cint API key")
+        }
         return WebClient.builder()
             .baseUrl(configuration.baseUrl)
             .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
